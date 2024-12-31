@@ -8,12 +8,12 @@ services:
     # Command used to deploy the Service
     deploy:
       # Run 5 instances of that image as a service called web
-      replicas: 5
+      replicas: 7
       resources:
         # Limiting each one to use, at most, 10% of a single core of CPU time and 50MB of RAM.
         limits:
-          cpus: "0.1"
-          memory: 50M
+          cpus: "0.3"
+          memory: 100M
       # Immediately restart containers if one fails.     
       restart_policy:
         condition: on-failure
