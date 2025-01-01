@@ -44,6 +44,18 @@ services:
       - backend
     deploy:
       replicas: 2
+  
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "5000:5000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - frontend
 
 networks:
   frontend:
